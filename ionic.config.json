@@ -1,0 +1,7 @@
+{
+  "name": "set_in_hand",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
