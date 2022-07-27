@@ -1,3 +1,61 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
-</ion-app>
+<!-- <ion-content>
+
+</ion-content> -->
+<ion-menu side="right" [content]="mycontent" type="overlay" persistent="true">
+  <ion-content id="MessageContainer">
+    <div class="messageUserList" id="MessageUserList">
+      <ion-list>
+        <ion-item *ngFor="let user of allUsers" (click)="clickk(user)">
+          <ion-avatar item-left>
+            <img class="user-img" alt="noImage" *ngIf="user.profilepicture !== null"
+              src="https://s3.eu-west-2.amazonaws.com/cyberlive-s3-bucket/profilepic/{{user.profilepicture}}">
+            <ion-icon *ngIf="user.profilepicture===null" id="cont" name="contact"></ion-icon>
+          </ion-avatar>
+          <h2>{{user.username}} <div class="user_msg_count" id="user_list_msg_count_{{user.id}}">
+              {{user.messagesCount}}
+            </div>
+          </h2>
+          <p>{{user.email}}</p>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="message-wrap" id="MessageWrap">
+      <div class="chat_person">
+
+        <div class="person_name" *ngIf="toUser !== undefined">{{toUser.name}}</div>
+        <div class="close" (click)="closemessagewrap(toUser.id)">x</div>
+      </div>
+      <div *ngFor="let msg of msgList" class="message" [class.left]="msg.userId === toUser.id"
+        [class.right]="msg.userId === loggeduser.id">
+        <img class="user-img" alt="noImage" *ngIf="msg.profilepicture !== null"
+          src="https://s3.eu-west-2.amazonaws.com/cyberlive-s3-bucket/profilepic/{{msg.profilepicture}}">
+        <ion-icon *ngIf="msg.profilepicture === null" id="cont" name="contact"></ion-icon>
+        <ion-spinner name="dots" *ngIf="msg.status === '1'"></ion-spinner>
+        <div class="msg-detail">
+          <div class="msg-info">
+            <p>{{msg.username}}&nbsp;&nbsp;&nbsp;{{msg.datetime}}</p>
+          </div>
+          <div class="msg-content"> <span class="triangle"></span>
+            <p class="line-breaker ">{{msg.message}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+  <ion-footer no-border id="MsgtxtInput">
+    <ion-grid class="input-wrap">
+      <ion-row>
+        <ion-col col-10>
+          <ion-textarea #chat_input placeholder="Text Input" [(ngModel)]="editorMsg" (ionFocus)="onFocus()">
+          </ion-textarea>
+        </ion-col>
+        <ion-col col-2>
+          <button ion-button clear icon-only item-right (click)="sendMsg()" type="submit" title="Hi">
+            <ion-icon name="ios-send" ios="ios-send" md="md-send"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-footer>
+</ion-menu>
+<ion-nav #mycontent [root]="rootPage"></ion-nav>

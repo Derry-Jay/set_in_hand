@@ -1,0 +1,92 @@
+<!--
+  Generated template for the PartialpagemodalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+<ion-navbar class="modal_header">
+    <ion-title>PARTIALLY COMPLETED DELIVERY</ion-title>
+    <ion-buttons end>
+    <button ion-button class="close_modal" (click)="closeModal()">x</button>
+    </ion-buttons>
+</ion-navbar>
+
+</ion-header>
+<ion-content padding id="completed" style="background:#ffffff !important;z-index:999999;">
+    <!-- partial complete  -->
+    <div id="ParitalPage">
+        <ion-list class="modal_form_border_bottom">
+            <ion-row>
+                <ion-col no-padding class="form_notes">
+                    <div>
+                        You are making <a href="#" (click)="openModal()">this</a> delivery as partially completed.<br /><br />
+                        The balance of this delivery will be placed back in the 'deliveries expected' task list
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-list>
+
+        <ion-row>
+            <div col-6 class="red_app_btn" (click)="closeModal()">Cancel</div>
+            <!---<div col-6 class="green_app_btn">Continue</div>-->
+        </ion-row>
+    </div>
+    <!-- PARTIALLY ADD DATA -->
+    <div id="ModalForm" style="display:none;" class="partialpagemodal">
+        <ion-list class="modal_form_border_bottom">
+            <ion-row>
+                <ion-col no-padding class="form_notes">
+                    <div>
+                        Please enter the product code and the number of boxes that have been delivered.
+                    </div>
+                </ion-col>
+            </ion-row>
+            <ion-item>
+                <ion-label>Stock Code</ion-label>
+                <ion-input class="stock_code" [(ngModel)]="Data.stock_code" placeholder="Enter Stock Code"></ion-input>
+            </ion-item>
+            <ion-row>
+                <ion-col col-12 col-sm-12 no-padding>
+                    <ion-item>
+                        <ion-label>Boxes</ion-label>
+                        <ion-input type="text" maxlength="10" (keyup)="ValidateNo($event)" inputmode="numeric" type="tel" pattern="[0-9]" [(ngModel)]="Data.box" placeholder="Boxes" clearInput></ion-input>
+                        <!--<ion-input class="no_of_boxes" min="0" inputmode="numeric" type="number" pattern="\\d*" [(ngModel)]="Data.box" placeholder="Enter No of Boxes"></ion-input>-->
+                    </ion-item>
+                </ion-col>
+                <ion-col col-12 col-sm-12 no-padding>
+                    <ion-item>
+                        <ion-label>Qty Per Box</ion-label>
+                        <ion-input class="qty_per_box" min="0" (keyup)="QtyValidateNo($event)" inputmode="numeric" type="tel" clearInput pattern="[0-9]" [(ngModel)]="Data.qty_per_box" placeholder="Qty Per Box"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-list>
+
+        <ion-row style="background:#ffffff;z-index:999999;">
+            <div col-6 class="red_app_btn" (click)="closeModal()">Cancel</div>
+            <div col-6 class="green_app_btn" (click)="adddiscrepancymodal()">Continue</div>
+        </ion-row>
+    </div>
+</ion-content>
+
+<!--<ion-content padding id="partially_completed"  >
+
+    <ion-list class="modal_form_border_bottom" ">
+        <ion-row>
+            <ion-col no-padding class="form_notes">
+                <div>
+                    You are making <a href="#" (click)="openModal()">this</a> delivery as partially completed.<br />
+                    The balance of this delivery will be placed back in the 'deliveries expected' task list
+                </div>
+            </ion-col>
+        </ion-row>
+
+
+        <ion-row style="">
+            <div col-6 class="red_app_btn" (click)="closeModal()">Cancel</div>
+            <div col-6 class="green_app_btn">Continue</div>
+        </ion-row>
+    </ion-list>
+</ion-content>-->

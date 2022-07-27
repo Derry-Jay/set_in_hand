@@ -1,0 +1,31 @@
+
+.top_right_icons
+	{
+		float:right;
+		ul
+		  {list-style:none; margin: 0;
+				li
+				  {float:left;
+						a
+							{padding: 7px 10px;	min-height: 50px; display: flex;align-items: center;
+								
+							img{ width: auto; height: auto; max-width: 35px; max-height: 35px;	 display: block;}							
+							}
+				  
+				  }	
+		  }	
+	}
+	
+.dashboard_item{
+
+	.dashboard_img_section
+		{
+			.goods_delivery_img{width:75% !important;padding-bottom:0;}	
+			.pull_left_icon{min-width: 180px;min-height: 180px;margin: 0 auto; border: 1px solid #ccc;max-height: 100%;max-width: 100%;width: 180px; height: 180px; text-align: center;padding-top: 70px;color:#95989a;font-size:24px;}
+		}		
+}
+	
+.dashboard_left_sidebar
+	{
+		.leftside_images{padding:25px 15px;}	
+	}

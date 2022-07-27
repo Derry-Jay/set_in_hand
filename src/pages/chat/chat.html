@@ -1,0 +1,39 @@
+<ion-header class="inner_header"> <a href="" class="logo_section"> <img class="logo_img" src="assets/imgs/logo.jpg" > </a>
+  <ion-navbar>
+    <ion-row>
+      <ion-col col-sm-6> 
+        <!--<div class="navbar_icon_section"> <img src="assets/imgs/navbar_icon.png" > </div>--> 
+      </ion-col>
+      <ion-col col-sm-6>
+        <div class="top_right_icons">
+          <ul>
+            <li class="pending_section"> <a > <img src="assets/imgs/pending.png"> </a> </li>
+            <li class="cart_section" > <a> <img src="assets/imgs/cart.png"> </a> </li>
+            <li class="notify_section"> <a> <img src="assets/imgs/notification.png"> </a> </li>
+            <li > <a href="" > <img src="https://static.pexels.com/photos/60006/spring-tree-flowers-meadow-60006.jpeg" style="border: 1px solid #fff;border-radius:100%;min-width:35px;min-height:35px;"> </a> </li>
+            <li> <a href="" (click)="doLogout()" > <img src="assets/imgs/logout.png"> </a> </li>
+          </ul>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row> </ion-row>
+    <!--<img ion-right src="" class="navbarLogo" />--> 
+    <!--<div text-right>
+			<h2 >Welcome {{userDetails.email}}</h2>
+			<button ion-button color="primary" (click)="logout()">Logout</button>
+		  </div>--> 
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <!-- display chat image , name with mail id -->
+  <ion-list>
+    <ion-item *ngFor="let user of allUsers" navPush="ChatwindowPage" [navParams]="user.nav">
+      <ion-avatar item-left> 
+       <img *ngIf="user.profilepicture != null" src="{{this.responseData.userData.public_url}}/{{user.profilepicture}}">
+        <ion-icon  *ngIf=" user.profilepicture == null"  style="font-size: 4em !important;" name="contact"></ion-icon>
+            </ion-avatar>
+      <h2>{{user.username}}</h2>
+      <p>{{user.email}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

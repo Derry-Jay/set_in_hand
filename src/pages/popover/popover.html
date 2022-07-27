@@ -1,0 +1,40 @@
+<!--
+  Generated template for the PopoverPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+ 
+</ion-header>
+
+
+<ion-content >
+    <ion-list class="scroll-option" >
+
+    <!--  <ion-item *ngFor="let item of items" (click)="dismiss(item)">
+        <div class="notify-box">
+            <div class="msg-date" ></div>
+            <div class="title" >{{item.title}}</div> 
+            <div class="content" >{{item.content}}</div>
+            <div class="" ></div>
+        </div>
+      </ion-item> -->
+
+      <ion-item *ngFor="let item of items" (click)="dismiss(item)">
+         <div class="notify-box">
+          
+            <div class="msg-date" >{{item.created_at}}</div>
+          <div class="notify-title">  
+            <div class="title" >{{item.title}}</div> 
+            <div class="status-icon" (click)="clearnotification(item.id)"></div>
+          </div>
+            <div class="content" >{{item.content}} </div>
+            
+        </div>
+        
+      </ion-item>
+
+    </ion-list>
+</ion-content>

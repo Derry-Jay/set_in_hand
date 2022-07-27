@@ -1,0 +1,178 @@
+<ion-header class="inner_header">
+	<a href="javascript:void(0);" class="logo_section">
+		<img class="logo_img" src="assets/imgs/logo.jpg">
+	</a>
+	<!-- headers -->
+	<ion-navbar hideBackButton>
+		<ion-row>
+			<ion-col col-sm-5>
+				<div class="navbar_icon_section">
+					<img src="assets/imgs/navbar_icon.png">
+				</div>
+
+			</ion-col>
+			<ion-col col-sm-7>
+				<div class="top_right_icons">
+					<ul>
+						<li class="notify_section" (click)="presentPopover($event)">
+							<a>
+								<img src="assets/imgs/notification.png">
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">
+								<img src="https://s3.eu-west-2.amazonaws.com/cyberlive-s3-bucket/profilepic/{{profilepicture}}"
+									style="border: 1px solid #fff;border-radius:100%;min-width:35px;min-height:35px;">
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)" (click)="doChat()">
+								<button ion-button icon-only menuToggle class="white_chat">
+									<div class="no_of_msgs" *ngIf="messagecount > 0" id="user_msg_count">{{messagecount}}</div>
+									<div class="no_of_msgs" *ngIf="messagecount <= 0" id="user_msg_count">{{messagecount}}</div>
+									<ion-icon ios="ios-chatboxes" md="md-chatboxes"></ion-icon>
+								</button>
+							</a>
+						</li>
+						<!--<li> <a href="javascript:void(0)" (click)="doChat()"> Chat <ion-icon ios="ios-chatboxes" md="md-chatboxes"></ion-icon></a> </li>-->
+						<li>
+							<a href="javascript:void(0);" (click)="logout()">
+								<img src="assets/imgs/logout.png">
+							</a>
+						</li>
+					</ul>
+				</div>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+		</ion-row>
+
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content no-padding style="background:#ffffff !important;">
+	<ion-refresher (ionRefresh)="doRefresh($event)">
+		<ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+			refreshingText="Refreshing...">
+		</ion-refresher-content>
+	</ion-refresher>
+	<ion-grid no-padding>
+		<ion-row>
+
+			<ion-col col-9 no-padding>
+				<ion-row>
+					<!-- Tasks -->
+					<ion-col col-6 no-padding>
+						<div class="tasks_column">
+							<div class="header">
+								<div class="title">
+									TASKS
+								</div>
+								<div class="image">
+
+								</div>
+							</div>
+
+							<div class="task_details" id="taskDetails">
+
+								<div class="task_box" *ngFor="let item of final_task"
+									(click)="movetootherpage(item.status,item.taskId)">
+									<div class="content_box">
+										<div class="title_box">
+											<span
+												class="title {{(item.status == 'Cycle Stock Check') ? 'green' : item.status == 'Full Stock Check' ? 'red' : 'blue'}}">{{item.status}}</span>
+											<span class="time">{{item.timeelapsed}}</span>
+										</div>
+										<div class="content" *ngIf="item.status == 'Cycle Stock Check'">
+											{{item.username}} has created a cycle stock check on pallet location {{item.locationcode}} for
+											{{item.customer_name}}.
+
+										</div>
+										<div class="content" *ngIf="item.status == 'Full Stock Check'">
+											{{item.username}} has activated a stock check function for {{item.customer_name}}.
+										</div>
+										<div class="content" *ngIf="item.status == 'Pull List'">
+											{{item.username}} has created a pull list for {{item.customer_name}}, This is to go to
+											{{item.reason}} {{item.details}}.
+
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+
+					</ion-col>
+					<!-- Deliveries -->
+					<ion-col col-6 no-padding>
+						<div class="deliveries_column">
+							<div class="header">
+								<div class="title">
+									DELIVERIES
+								</div>
+								<div class="image">
+
+								</div>
+
+							</div>
+							<div class="delivery_details">
+								<div class="delivery_box" *ngFor="let item of deliveryarr"
+									(click)="gotodeliverypage(item.deliveryId,item.allow_redirect)">
+									<div class="content_box">
+										<div class="title_box">
+											<span class="title red">Delivery Due </span>
+											<span class="time">{{item.timeelapsed}}</span>
+										</div>
+										<div class="content">
+											Delivery ({{item.subsetDeliveryId}}) for {{item.customer_name}} is due today.
+										</div>
+									</div>
+
+								</div>
+
+
+							</div>
+						</div>
+					</ion-col>
+				</ion-row>
+			</ion-col>
+			
+			<!-- stock movement , add delivery , whatsthis -->
+			<ion-col col-3 no-padding>
+				<div class="option_right">
+					<div class="option_box" (click)="goodsinmovement()">
+						<div class="stock_move">
+						</div>
+						<div class="option_name">STOCK MOVEMENT</div>
+					</div>
+					<div class="option_box" (click)="deliveryadd()">
+						<div class="add_delivery">
+						</div>
+						<div class="option_name">ADD DELIVERY</div>
+					</div>
+					<div class="option_box" (click)="gotowhatsthis()">
+						<div class="what_this">
+						</div>
+						<div class="option_name">WHAT'S THIS</div>
+
+					</div>
+				</div>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+
+</ion-content>
+<ion-footer>
+	<ion-toolbar>
+		<ion-row>
+			<ion-col col-6 text-left>
+				Simia - Set in Hand &copy; 2018 All rights reserved.
+			</ion-col>
+			<ion-col col-6 text-right>
+				System Version 1.9.3
+			</ion-col>
+		</ion-row>
+	</ion-toolbar>
+</ion-footer>

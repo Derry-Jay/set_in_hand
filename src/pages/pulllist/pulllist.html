@@ -1,0 +1,280 @@
+<!--
+  Generated template for the DeliveryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="inner_header">
+    <a href="javascript:void(0);" (click)="gotohome()" class="logo_section">
+        <img class="logo_img" src="assets/imgs/logo.jpg">
+    </a>
+    <!-- headers -->
+    <ion-navbar hideBackButton>
+        <!--hideBackButton-->
+        <ion-buttons left>
+            <button (click)="gotoback();" ion-button navPop icon-only>
+                <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-row>
+            <ion-col col-sm-6>
+            </ion-col>
+            <ion-col col-sm-6>
+                <div class="top_right_icons">
+                    <ul>
+                        <li class="notify_section">
+                            <a>
+                                <img src="assets/imgs/notification.png">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="https://s3.eu-west-2.amazonaws.com/cyberlive-s3-bucket/profilepic/{{profilepicture}}"
+                                    style="border: 1px solid #fff;border-radius:100%;min-width:35px;min-height:35px;">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" (click)="doChat()">
+                                <button ion-button icon-only menuToggle class="white_chat">
+                                    <div class="no_of_msgs" *ngIf="messagecount > 0" id="user_msg_count">
+                                        {{messagecount}}</div>
+                                    <div class="no_of_msgs" *ngIf="messagecount <= 0" id="user_msg_count">
+                                        {{messagecount}}</div>
+                                    <ion-icon ios="ios-chatboxes" md="md-chatboxes"></ion-icon>
+                                </button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" (click)="logout()">
+                                <img src="assets/imgs/logout.png">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+        </ion-row>
+
+    </ion-navbar>
+
+
+</ion-header>
+
+<div class="delivery_left_container">
+    <ion-col col-12 col-sm-8 style="background:#ffffff !important;">
+        <ion-row class="padding_30_3">
+            <!-- mr-id -->
+            <ion-col col-12 col-sm-6 col-md-4 no-padding>
+                <ion-row class="border_right_2">
+                    <ion-col col-12 no-padding>
+                        <div class="assignlocation_col_header">
+                            MR ID
+                        </div>
+                    </ion-col>
+                    <ion-col col-12 no-padding>
+                        <div class="assignlocation_col_1">
+                            {{mr_number}}
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+            <!-- customer details -->
+            <ion-col col-12 col-sm-6 col-md-4 no-padding>
+                <ion-row class="border_right_2">
+                    <ion-col col-12 no-padding>
+                        <div class="assignlocation_col_header">
+                            Customer
+                        </div>
+                    </ion-col>
+                    <ion-col col-12 no-padding>
+                        <div class="assignlocation_col_1">
+                            {{customer_name}}
+                        </div>
+                    </ion-col>
+
+                </ion-row>
+            </ion-col>
+            <!-- Reason -->
+            <ion-col col-12 col-sm-6 col-md-4 no-padding>
+                <ion-row class="border_right_2">
+                    <ion-col col-12 no-padding>
+                        <div class="assignlocation_col_header">
+                            Reason
+                        </div>
+                    </ion-col>
+                    <ion-col col-12 no-padding>
+                        <div class="assignlocation_col_1">
+                            {{reason}}
+                        </div>
+                    </ion-col>
+
+                </ion-row>
+            </ion-col>
+            <!-- details -->
+            <ion-col col-12 col-sm-6 col-md-4 no-padding>
+                <ion-row class="border_right_2">
+                    <ion-col col-12 no-padding>
+                        <div class="assignlocation_col_header">
+                            Details
+                        </div>
+                    </ion-col>
+                    <ion-col col-12 no-padding>
+                        <div class="assignlocation_col_1">
+                            {{details}}
+                        </div>
+                    </ion-col>
+
+                </ion-row>
+            </ion-col>
+        </ion-row>
+
+    </ion-col>
+
+
+
+    <div style="float:right;margin-right:20px;"><label>Remaining Qty to be
+            Pulled:</label><span>{{remaining_qty_to_be_pulled}}</span></div>
+    <div class="delivery_left_container_2">
+        <ion-content id="Content" class="margin_bottom_70 main_stock_table" overflow-scroll="true" scroll="true" #Content>
+            <!-- location , stockitem , type , qty -->
+        <div class="left">
+            <div class="headerrow">
+                <div class="header_1 col">
+                    Locations
+                </div>
+                <div class="header_2 col">
+                    Stock Items
+                </div>
+                <div class="header_3 col">
+                    Type
+                </div>
+                <div class="header_4 col">
+                    Qty
+                </div>
+            </div>
+
+                <ion-list>
+
+                    <div class="pull_list_row qrcode{{item.qrCodeId}}" id="mainqrcode{{i}}"
+                        *ngFor="let item of Itemarr let i = index">
+
+                        <div class="col stockcol_1 warehouse{{item.warehouse_id}} selected_blue"
+                            *ngIf="item.warehouse_id === selected_warehouseid" id="{{item.unique_id}}">
+                            <div class="ware_delivery_id" style="display: none;">{{item.deliveryId}}</div>
+                            <div class="">{{item.unique_id}}</div>
+                        </div>
+
+                        <div class="col stockcol_1 warehouse{{item.warehouse_id}}"
+                            *ngIf="item.warehouse_id !== selected_warehouseid" id="{{item.unique_id}}">
+                            <div class="ware_delivery_id" style="display: none;">{{item.deliveryId}}</div>
+                            <div class="">{{item.unique_id}}</div>
+                        </div>
+
+
+
+                        <div class="col stockcol_2 {{item.qrcodetext}}" id="qrcode{{item.qrCodeId}}"
+                            (click)="expandboxinfo1(item.qrCodeId,item.deliveryId,item.expectedqty,item.quantity_type,item.qty_expected,
+                            item.product_code,i,item.manualPull,item.warehouse_id,item.unique_id)">
+
+                            <div class="mr_number" style="display: none;">{{item.moveReqId}}</div>
+                            <div class="delivery_id" style="display: none;">{{item.deliveryId}}</div>
+                            <div class="Qrcodeid" style="display: none;">{{item.qrCodeId}}</div>
+                            <div class="ExpectedQty" style="display: none;">{{item.expectedqty}}</div>
+                            <div class="QtyType" style="display:none;">{{item.quantity_type}}</div>
+                            <div class="StockItemId">{{item.product_code}}</div>
+                        </div>
+
+
+
+                        <div class="col stockcol_3 ">
+                            <div class="">{{item.quantity_type}}</div>
+                        </div>
+
+
+                        <div class="col stockcol_4 ">
+                            <!-- <div class="" *ngIf="item.expectedqty <= item.quantity_per_box">{{item.expectedqty}}</div>
+                            <div class="" *ngIf="item.expectedqty > item.quantity_per_box">{{item.qr_perbox}}</div> -->
+                            <div class="">{{item.show_qty}}</div>
+                        </div>
+                    </div>
+
+                    <div [innerHTML]="tmpl" (click)="tapbox($event)">Items</div>
+
+
+
+
+                </ion-list>
+
+
+
+            <!--<div class="scrolloutcontent scroll_1" >
+	            <button (click)="scrollTo()"  ion-button full>Scroll Down</button>
+	        </div>-->
+        </div>
+    </ion-content>
+    </div>
+
+</div>
+
+
+<!-- scan code process -->
+<div class="delivery_right_container">
+    <ion-col col-12 col-sm-4>
+
+
+        <button ion-button full icon-left (click)="scanlocation()" id="scanbutton" color="secondary">
+            <ion-icon name="qr-scanner"></ion-icon>Scan Code
+        </button>
+
+        <ion-row>
+            <ion-col col-12 no-padding class="qr_scan_box">
+            </ion-col>
+        </ion-row>
+        <ion-row class="qr_cancel_border">
+            <ion-col>
+                <button ion-button color="danger" (click)="hidecamera()" style="display:none;margin:15px auto;"
+                    id="qr_cancel_btn">Cancel</button>
+            </ion-col>
+        </ion-row>
+        <ion-row style="background:#e5e5e5">
+            <ion-col col-12 no-padding>
+
+                <div>
+                    <ion-card *ngIf="scannedCode">
+                        <ion-card-content>
+                            Result from Scan: {{ scannedCode }}
+                        </ion-card-content>
+                    </ion-card>
+                </div>
+                <div class="design_view none" id="CodeLinked" style="margin-top:15px;margin-bottom:15px;">
+                    <div>
+                        <img src="assets/imgs/green_tick.png" class="success_tick">
+                    </div>
+                    <div class="success_msg">
+                        CODE LINKED
+                    </div>
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-12 no-padding class="dashboard_right_sidebar">
+                <div id="tap_to_parital_complete_btn" class="tap_to_parital_complete_btn green"
+                    (click)="partialcomplete()">Partially Complete</div>
+            </ion-col>
+        </ion-row>
+
+    </ion-col>
+</div>
+<ion-footer>
+    <ion-toolbar>
+        <ion-row>
+            <ion-col col-6 text-left>
+                Simia - Set in Hand 2018 &copy; All rights reserved.
+            </ion-col>
+            <ion-col col-6 text-right>
+                System Version 1.9.3
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
+</ion-footer>

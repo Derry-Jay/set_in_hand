@@ -1,0 +1,282 @@
+<!--
+  Generated template for the DeliveryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="inner_header">
+    <a href="javascript:void(0);" (click)="calhome()" class="logo_section">
+        <img class="logo_img" src="assets/imgs/logo.jpg">
+    </a>
+    <!-- header bars -->
+    <ion-navbar hideBackButton> <!--hideBackButton-->
+    <ion-buttons left>
+		    <button (click)="gotoback();" ion-button navPop icon-only>
+			  <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+		    </button>
+	      </ion-buttons>
+        <ion-row>
+            <ion-col col-sm-6>
+
+
+            </ion-col>
+            <ion-col col-sm-6>
+                <div class="top_right_icons">
+                    <ul>
+                        <li class="notify_section">
+                            <a>
+                                <img src="assets/imgs/notification.png">
+                            </a>
+                        </li>
+                        <li>
+							            <a href="" >
+								            <img src="https://s3.eu-west-2.amazonaws.com/cyberlive-s3-bucket/profilepic/{{profilepicture}}" style="border: 1px solid #fff;border-radius:100%;min-width:35px;min-height:35px;">
+							            </a>
+						            </li>
+                        <li>
+                            <a href="javascript:void(0)" (click)="doChat()">
+                                <button ion-button icon-only menuToggle class="white_chat">
+                                    <div class="no_of_msgs" *ngIf="messagecount > 0" id="user_msg_count">{{messagecount}}</div>
+                                    <div class="no_of_msgs" *ngIf="messagecount <= 0" id="user_msg_count">{{messagecount}}</div>
+                                    <ion-icon ios="ios-chatboxes" md="md-chatboxes"></ion-icon>
+                                </button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" (click)="logout()">
+                                <img src="assets/imgs/logout.png">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+        </ion-row>
+        <!--<img ion-right src="" class="navbarLogo" />-->
+        <!--<div text-right>
+          <h2 >Welcome {{userDetails.email}}</h2>
+          <button ion-button color="primary" (click)="logout()">Logout</button>
+        </div>-->
+    </ion-navbar>
+
+
+</ion-header>
+
+<div class="delivery_left_container">
+	 <ion-col col-12 col-sm-8 style="background:#ffffff !important;">
+			<ion-row class="padding_30_3" >
+                <!-- task/full stock item -->
+                    <ion-col col-12 col-sm-6 col-md-3 no-padding>
+                        <ion-row class="border_right_2">
+                            <ion-col col-12 no-padding>
+                                <div class="assignlocation_col_header">
+                                    Task
+                                </div>
+                            </ion-col>
+                            <ion-col col-12 no-padding>
+                                <div class="assignlocation_col_1">
+                                    Full Stock Check
+                                </div>
+                            </ion-col>
+                        </ion-row>
+                    </ion-col>
+                    <!-- customer / customer name -->
+                    <ion-col col-12 col-sm-6 col-md-3 no-padding>
+                        <ion-row class="border_right_2">
+                            <ion-col col-12 no-padding>
+                                <div class="assignlocation_col_header">
+                                    Customer
+                                </div>
+                            </ion-col>
+                            <ion-col col-12 no-padding>
+                                <div class="assignlocation_col_1">
+                                    {{customer_name}}
+                                </div>
+                            </ion-col>
+
+                        </ion-row>
+                    </ion-col>
+                    <!-- date started -->
+					 <ion-col col-12 col-sm-6 col-md-3 no-padding>
+                        <ion-row class="border_right_2">
+                            <ion-col col-12 no-padding>
+                                <div class="assignlocation_col_header">
+                                    Date Started
+                                </div>
+                            </ion-col>
+                            <ion-col col-12 no-padding>
+                                <div class="assignlocation_col_1">
+                                    {{date_started}}
+                                </div>
+                            </ion-col>
+
+                        </ion-row>
+                    </ion-col>
+                    <!-- Location -->
+					<ion-col col-12 col-sm-6 col-md-3 no-padding>
+                        <ion-row class="border_right_2">
+                            <ion-col col-12 no-padding>
+                                <div class="assignlocation_col_header">
+                                    Location
+                                </div>
+                            </ion-col>
+                            <ion-col col-12 no-padding>
+                                <div class="assignlocation_col_1">
+                                    {{location}}
+                                </div>
+                            </ion-col>
+
+                        </ion-row>
+                    </ion-col>
+                </ion-row>
+
+    </ion-col>
+
+
+
+	<!-- <div class="delivery_left_container_2">
+		<div class="left">
+			<div class="header_1"  >
+	                Low Pallet Locations
+	            </div>
+				<div class="header_2" >
+	                High Pallet Locations
+	            </div>
+            <ion-content id="Content" class="margin_bottom_70 main_stock_table" #Content>
+
+				<ion-list scroll="true">
+					<div  class="col stock_item_due " style="width:50%;" no-padding>
+						<div class="row stockrow stockcol_1 orange"></div>
+						<div  class = "row stockrow stockcol_1 orange" >
+						   <div class="col">adadad</div>
+							</div>
+					</div>
+
+
+				</ion-list>
+
+
+		</ion-content>
+
+			 <div class="scrolloutcontent scroll_1" >
+	                    <button (click)="scrollTo()"  ion-button full>Scroll Down</button>
+	                </div>
+	</div>
+
+
+	</div> -->
+	<div class="delivery_left_container_2">
+        <!-- Stock item in location -->
+		<div class="left">
+			<div class="header_1"  >
+	                Stock Items in this location
+	        </div>
+			<ion-content id="Content" class="margin_bottom_70 main_stock_table" #Content>
+
+				<ion-list scroll="true">
+					<div *ngIf="Itemlength > 0" class="col stock_item_due" no-padding>
+						<div id="{{item.qrcodeId}}" class = "row stockrow stockcol_1 {{(item.stock_check_status == 1) ? 'selected_blue' : item.stock_check_status == 2 ? 'green' : 'orange'}}" *ngFor="let item of Itemarr">
+						   <div class="col">{{item.stock_item_id}}</div>
+							</div>
+					</div>
+					<div *ngIf="Itemlength <= 0">
+					    <div id="" class = "row stockrow stockcol_1 red">
+						   <div class="col">No Stock Item in this Location</div>
+							</div>
+					</div>
+				</ion-list>
+
+			</ion-content>
+
+		 <div class="scrolloutcontent scroll_1" ng-if="responseData.getStockItems.length > 10">
+	         <button (click)="scrollTo()"  ion-button full>Scroll Down</button>
+	      </div>
+        </div>
+
+        <!-- Expected and updated Quantity -->
+		<div class="right">
+			<div class="">
+				<div class="header_1"  >
+						Quantity Expected
+				</div>
+				<div class="content_1" id="quantity_expeceted">
+
+				</div>
+			</div>
+			<div class="" *ngIf="Itemlength > 0">  
+				<div class="header_2"  >
+						Update Quantity
+				</div>
+				<div class="content_2" id="quantity_updated" >
+            <ion-input type="number" [(ngModel)]="formData.quantity_update" placeholder=""></ion-input>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+
+<!-- side menu scan process -->
+<div class="delivery_right_container">
+<ion-col col-12 col-sm-4 >
+                <button ion-button full icon-left (click)="scanstockitem()" color="secondary"><ion-icon name="qr-scanner"></ion-icon>Scan Code</button>
+                <ion-row>
+                    <ion-col col-12 no-padding class="qr_scan_box" >
+                    </ion-col>
+                </ion-row>
+                <ion-row class="qr_cancel_border">
+                    <ion-col>
+                        <button ion-button color="danger" (click)="hidecamera()" style="display:none;margin:15px auto;" id="qr_cancel_btn" >Cancel</button>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row style="background:#e5e5e5">
+                    <ion-col col-12 no-padding>
+
+                         <div>
+                           <ion-card *ngIf="scannedCode">
+                                <ion-card-content>
+                                    Result from Scan: {{ scannedCode }}
+                                </ion-card-content>
+                            </ion-card>
+                        </div>
+                        <div class="design_view none" id="CodeLinked" style="margin-top:15px;margin-bottom:15px;">
+                            <div>
+                                <img src="assets/imgs/green_tick.png" class="success_tick">
+                            </div>
+                            <div class="success_msg">
+                                CODE LINKED
+                            </div>
+                        </div>
+                    </ion-col>
+                </ion-row>
+                 <ion-row  class="">
+                    <ion-col id="taptocomplete" col-12 no-padding class="dashboard_right_sidebar">
+                        <div class="tap_to_complete_btn green" (click)="completestockitem()">TAP TO COMPLETE</div>
+                    </ion-col>
+                    <ion-col id="taptofinlaize" col-12 no-padding class="dashboard_right_sidebar">
+                        <div class="tap_to_complete_btn green" (click)="completeTofinalize()">TAP TO FINALIZE</div>
+                    </ion-col>
+                    <ion-col id="tapofzerostock" col-12 no-padding class="dashboard_right_sidebar">
+                        <div class="tap_to_complete_btn green" (click)="completeTofinalize()">CONFIRM ZERO STOCK</div>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+</div>
+
+<ion-footer>
+  <ion-toolbar>
+        <ion-row>
+			<ion-col col-6 text-left>
+				Simia - Set in Hand 2018 &copy; All rights reserved.
+			</ion-col>
+			<ion-col col-6 text-right>
+				System Version 1.9.3
+			</ion-col>
+		</ion-row>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,252 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+html,
+body.transparent-body,
+.transparent-body,
+.transparent-body ion-app,
+.transparent-body .app-root,
+.transparent-body ion-nav,
+.transparent-body .ion-page,
+.transparent-body .nav-decor,
+.transparent-body ion-content,
+.transparent-body .viewscan,
+.transparent-body .fixed-content,
+.transparent-body .scroll-content {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+
+.back-button.show-back-button {
+  color: #000
+}
+
+ion-loading.mainloader {
+  background: #ccc;
+  opacity: 0.98;
+}
+
+#MessageContainer {
+  height: 94% !important
+}
+
+$userBackgroundColor: #387ef5;
+$toUserBackgroundColor: #fff;
+
+#cont {
+  /*background-color: #f5f5f5*/
+  font-size: 4em !important;
+}
+
+#MsgtxtInput {
+  display: none;
+}
+
+.line-breaker {
+  white-space: pre-line
+}
+
+.input-wrap {
+  padding: 0 5px;
+
+  ion-textarea {
+    position: static
+  }
+
+  ion-col.col {
+    padding: 0
+  }
+
+  button {
+    width: 100%;
+    height: 55px;
+    font-size: 1.3em;
+    margin: 0
+  }
+
+  textarea {
+    border-bottom: 1px $userBackgroundColor;
+    border-style: solid;
+    color: #000
+  }
+}
+
+.message-wrap {
+  #MessageWrap {
+    display: none;
+    position: relative;
+  }
+
+  .message {
+    position: relative;
+    padding: 7px 0;
+    margin: auto 10px;
+
+    .user-img {
+      position: absolute;
+      border-radius: 45px;
+      width: 45px;
+      height: 45px;
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.36)
+    }
+
+    .msg-detail {
+      width: 100%;
+      display: inline-block;
+
+      p {
+        margin: 0
+      }
+
+      .msg-info {
+        p {
+          font-size: .8em;
+          color: #888
+        }
+      }
+
+      .msg-content {
+        position: relative;
+        margin-top: 5px;
+        border-radius: 5px;
+        padding: 8px;
+        border: 1px solid #ddd;
+        color: #000;
+        width: auto;
+        max-width: 80%;
+
+        span.triangle {
+          background-color: #fff;
+          border-radius: 2px;
+          height: 8px;
+          width: 8px;
+          top: 12px;
+          display: block;
+          border-style: solid;
+          border-color: #ddd;
+          border-width: 1px;
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+          position: absolute
+        }
+      }
+    }
+  }
+
+  .message.left {
+    .msg-content {
+      background-color: $toUserBackgroundColor;
+      float: left
+    }
+
+    .msg-detail {
+      padding-left: 60px
+    }
+
+    .user-img {
+      left: 0
+    }
+
+    .msg-content {
+      color: #343434;
+
+      span.triangle {
+        border-top-width: 0;
+        border-right-width: 0;
+        left: -5px
+      }
+    }
+  }
+
+  .message.right {
+    .msg-detail {
+      padding-right: 60px;
+
+      .msg-info {
+        text-align: right
+      }
+    }
+
+    .user-img {
+      right: 0;
+    }
+
+    ion-spinner {
+      position: absolute;
+      right: 10px;
+      top: 50px
+    }
+
+    .msg-content {
+      background-color: $userBackgroundColor;
+      float: right;
+
+      span.triangle {
+        background-color: $userBackgroundColor;
+        border-bottom-width: 0;
+        border-left-width: 0;
+        right: -5px
+      }
+    }
+  }
+}
+
+/*Common styles*/
+.user_msg_count {
+  float: right;
+  margin: 5px;
+  min-width: 22px;
+  min-height: 22px;
+  background: #33b4e7;
+  border-radius: 100%;
+  font-size: 14px;
+  padding: 3px;
+  color: #fff;
+  text-align: center;
+
+}
+
+.chat_person {
+  height: 70px;
+  width: 100%;
+  position: sticky;
+  top: -20px;
+  left: 0;
+  right: 0;
+  min-width: 100%;
+  background: #33b4e7;
+  padding: 30px 10px 10px 10px;
+  color: #ffffff;
+  z-index: 999;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: capitalize;
+
+  .person_name {
+    width: calc(100% - 24px);
+    float: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+  }
+
+  .close {
+    float: right;
+    color: #fff;
+    font-size: 20px
+  }
+}

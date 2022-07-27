@@ -1,0 +1,43 @@
+#partially_completed{background:#ffffff !important;}
+.partialpagemodal {
+    background: #ffffff !important;
+
+    .list {
+
+        .label {
+            min-width: 90px;
+            color: #717171;
+
+            ion-input {
+                border: 1px solid #95989a;
+                color: #484848;
+                padding: 0;
+                font-size: 20px;
+            }
+        }
+
+        #lbl-12, #lbl-14, .partialpagemodal label {
+            min-width: 90px;
+            color: #717171;
+        }
+
+        .item-input {
+            border-bottom: none;
+
+            .item-inner {
+                border-bottom: none;
+
+                ion-input {
+                    border: 1px solid #95989a;
+                    color: #484848;
+                    padding: 0;
+                    font-size: 20px;
+                }
+            }
+        }
+
+        .input {
+            border-radius: 0px;
+        }
+    }
+}

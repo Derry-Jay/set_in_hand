@@ -1,0 +1,100 @@
+@import "https://fonts.googleapis.com/css?family=Open+Sans:400,600i";
+
+$color_1: #39b4e7;
+$color_2: #ee6366;
+$color_3: #555;
+$font_family: 'Open Sans', sans-serif;
+$background_color_1: #39b4e7;
+$background_color_2: #101d61;
+$border_color_1: #ccc;
+
+body {
+	font-family: $font_family;
+	font-weight: 400;
+}
+ion-app {
+	font-family: $font_family;
+	font-weight: 400;
+}
+a {
+	text-decoration: none;
+	&:hover {
+		color: $color_1;
+	}
+}
+.mb15 {
+	margin-bottom: 15px;
+}
+.logo {
+	width: 115px;
+	vertical-align: middle;
+}
+.toolbar {
+	min-height: 75px;
+}
+.toolbar-background {
+	background: #fff;
+}
+.header {
+	.toolbar-background {
+		border-color: $border_color_1;
+	}
+	.toolbar {
+		&:last-child {
+			.toolbar-background {
+				border-width: 0 0 2px;
+			}
+		}
+	}
+}
+.footer {
+	.toolbar-background {
+		border-color: $border_color_1;
+	}
+}
+h1.login-title {
+	color: $color_2;
+	display: block;
+}
+.forgetpwd {
+	color: $color_2;
+	display: block;
+}
+.card {
+	box-shadow: none;
+}
+.item-input {
+	ion-input {
+		height: 55px;
+		font-size: 18px;
+		border: 1px solid #ccc;
+		color: $color_3;
+		width: 100%;
+		padding: 6px 12px;
+		border-radius: 4px;
+	}
+}
+.list {
+	>.item-block {
+		&:first-child {
+			border-top: none;
+		}
+	}
+}
+.item {
+	padding-left: 0px;
+	.item-inner {
+		padding-right: 0px !important;
+		margin-bottom: 15px;
+	}
+}
+.btn-login {
+	background-color: $background_color_1;
+	border-color: $border_color_1;
+	font-size: 18px;
+	padding: 10px 40px;
+	text-transform: capitalize;
+	&:hover {
+		background-color: $background_color_2;
+	}
+}

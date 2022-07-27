@@ -1,0 +1,24 @@
+page-popover {
+	.notify-box{
+			padding-top:10px;padding-bottom: 10px;border-bottom: 1px solid #e4e4e4;float: left;padding-top: 5px;
+
+			.msg-date{text-align:right;font-size:12px;color:#acacad;white-space:initial;}
+			
+			.notify-title{white-space:initial;margin-bottom:5px;
+				.title{font-size:18px;float:left;color:#ff0615;text-align:left;width: calc( 100% - 25px ); white-space:initial;margin-bottom:5px;}
+				.status-icon{background: url(../assets/imgs/checked.png) no-repeat;width:16px;height:16px;float:right;display: inline-block;margin-top: 4px;}
+			}
+			.content{float:left;font-size:14px;color:#838cd4;white-space:initial;margin-bottom:5px;
+				.no{color:#333333;}
+			}
+	}
+	.notify-box:first-child{border-top: 0;}
+	.notify-box:last-child{border-bottom: 0;}
+	.scroll-option{height: 400px;}
+}
+
+.popover-ios 
+	{
+		.popover-content{width:260px;}
+
+	}	

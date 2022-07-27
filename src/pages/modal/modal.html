@@ -1,0 +1,53 @@
+
+<ion-header>
+ 
+<ion-navbar class="modal_header">
+    <ion-title>ADD/EDIT A DISCREPANCY</ion-title>
+		<ion-buttons end >
+		<button ion-button class="close_modal" (click)="closeModal()">x</button>
+		</ion-buttons>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding id="add_discrepancy" >
+	
+	<ion-list class="modal_form_border_bottom"  >
+	 <ion-row>
+		<ion-col no-padding class="form_notes">
+			<div> Please enter the product code and the number of boxes that have been delivered.
+			</div>
+		</ion-col>
+	 </ion-row>
+	  <ion-item>
+		<ion-label >Stock Code</ion-label>
+		<ion-input class="stock_code" [(ngModel)]="Data.stockcode" [readonly]="isReadonly()"  placeholder="Enter Stock Code"></ion-input>		
+	  </ion-item>
+	  <ion-row>
+		<ion-col col-12 col-sm-12 no-padding>
+		  <ion-item>
+			<ion-label >Boxes</ion-label>
+            <ion-input type="text" maxlength="10" (keyup)="ValidateNo($event)" inputmode="numeric" type="tel" pattern="[0-9]" [(ngModel)]="Data.box" placeholder="Boxes" clearInput></ion-input>
+			<!--<ion-input class="no_of_boxes" min="0" inputmode="numeric" type="number" pattern="\\d*" [(ngModel)]="Data.box" placeholder="Enter No of Boxes"></ion-input>-->
+		  </ion-item>
+		</ion-col>
+		<ion-col col-12 col-sm-12 no-padding>
+		   <ion-item>
+			<ion-label >Qty Per Box</ion-label>
+			<ion-input class="qty_per_box" min="0" [(ngModel)]="Data.qty_per_box" (keyup)="QtyValidateNo($event)" [readonly]="isReadonly()" inputmode="numeric" type="tel" clearInput pattern="[0-9]"  placeholder="Qty Per Box"></ion-input>
+		  </ion-item>
+		</ion-col>  
+	  </ion-row>
+	</ion-list>  
+	<!--<ion-label color="primary" fixed>Stock Code</ion-label>
+    <ion-input outline  placeholder="Enter Stock Code"></ion-input>
+    <ion-label color="primary" fixed>Boxes</ion-label>
+    <ion-input outline placeholder="Enter No of Boxes"></ion-input>
+    <ion-label color="primary" fixed>Qtr Per Box</ion-label>
+    <ion-input outline placeholder="Qty Per Box"></ion-input>-->
+	<ion-row style="background:#ffffff;z-index:999999;" >
+		<div col-6 class="red_app_btn" (click)="closeModal()">Cancel</div>
+		<div col-6 class="green_app_btn" (click)="adddiscrepancy()">Continue</div>
+	</ion-row>
+</ion-content>

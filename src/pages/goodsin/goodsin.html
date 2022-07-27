@@ -1,0 +1,145 @@
+<ion-header class="inner_header">
+	<a href="" (click)="calhome()" class="logo_section">
+		<img class="logo_img" src="assets/imgs/logo.jpg" >
+	</a>
+	<!-- navigation BAr -->
+	<ion-navbar>
+		<ion-row>
+			<ion-col col-sm-6>
+				
+				
+			</ion-col>
+			<ion-col col-sm-6>
+				<div class="top_right_icons">
+					<ul>						
+						<li class="notify_section" >
+							<a>
+								<img src="assets/imgs/notification.png">
+							</a>	
+						</li>
+						<li >
+							<a href="" >
+								<img src="https://static.pexels.com/photos/60006/spring-tree-flowers-meadow-60006.jpeg" style="border: 1px solid #fff;border-radius:100%;min-width:35px;min-height:35px;">
+							</a>	
+						</li>
+                        <li>
+                            <a href="javascript:void(0)" (click)="doChat()">
+                                <button ion-button icon-only menuToggle class="white_chat">
+                                    <div class="no_of_msgs" *ngIf="messagecount > 0" id="user_msg_count">{{messagecount}}</div>
+                                    <div class="no_of_msgs" *ngIf="messagecount <= 0" id="user_msg_count">{{messagecount}}</div>
+                                    <ion-icon ios="ios-chatboxes" md="md-chatboxes"></ion-icon>
+                                </button>
+                            </a>
+                        </li>
+						<li>
+							<a href="" (click)="logout()">
+								<img src="assets/imgs/logout.png">
+							</a>
+						</li>
+					</ul>
+				</div>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+		</ion-row>
+		<!--<img ion-right src="" class="navbarLogo" />-->
+		  <!--<div text-right>
+			<h2 >Welcome {{userDetails.email}}</h2>
+			<button ion-button color="primary" (click)="logout()">Logout</button>
+		  </div>-->
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content >
+
+
+ <ion-grid no-padding>
+	    <ion-row>
+			<ion-col  col-12 col-sm-4 >
+				<div class="dashboard_left_sidebar">
+					<div class="leftside_images">
+						<img src="assets/imgs/side_stock_icon.png" >
+					</div>
+				</div>				
+			</ion-col>
+			<!-- Stock / Pull list item -->
+			<ion-col col-12 col-sm-8 class="margin_bottom_70"  >
+				<ion-row>
+					<ion-col col-6  >
+						<a href="#">
+							<div class="dashboard_item">
+								<div class="dashboard_img_section">
+									<img src="assets/imgs/stock_2.png" class="dashboard_icon" >						
+								
+								</div>
+								<h3>STOCK</h3>
+							</div>
+						</a>
+					</ion-col>
+						<ion-col col-6 >
+						<a href="#">
+							<div class="dashboard_item" >
+								<div class="dashboard_img_section" (click)="goodsinmovement()" >
+									<img src="assets/imgs/move_icon.png" class="dashboard_icon" >								
+								</div>
+								
+							</div>
+						</a>				 
+					</ion-col>
+					<ion-col col-6 >
+							<div class="dashboard_item" >
+								<div class="dashboard_img_section" >
+									<a href="javascript:void(0);" (click)="delivery()" >
+										<img src="assets/imgs/deliveries.png" class="dashboard_icon goods_delivery_img" >								
+									</a>									
+								</div>
+								
+								<!--<h3>DELIVERIES</h3>-->
+							</div>
+					</ion-col>
+				    <ion-col col-6 >
+						<a href="#">
+							<div class="dashboard_item">
+								<div class="dashboard_img_section" >
+									<div class="pull_left_icon" >
+										Pull List<br/>
+										Icon
+									</div>												
+								</div>
+								
+							</div>	
+						</a>					  
+					</ion-col>
+					
+				</ion-row>
+			</ion-col>
+		</ion-row>
+</ion-grid>
+</ion-content>
+
+
+ 
+  
+   <!-- <ion-col col-6>
+      <ion-row>
+        <ion-col>
+          <a href="#"><h3>STOCK</h3></a>
+        </ion-col>
+        <ion-col>
+          <a href="#"><h3>MOVE STOCK</h3></a>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <a href="#" (click)="delivery()"><h3>DELIVERY</h3></a>
+        </ion-col>
+        <ion-col>
+          <a href="#"><h3>PULL LIST</h3></a>
+        </ion-col>
+      </ion-row>
+    </ion-col>-->
+
+
+  
+

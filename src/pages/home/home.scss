@@ -1,0 +1,333 @@
+
+/*General styles*/
+.show{display:block !important;}
+
+.inner_header{
+	.toolbar-background{background:#6c6c6c !important;}
+	}
+	
+.navbar_icon_section
+	{
+		display:inline-block;
+		padding-left: 10px;
+		margin-top:12px;
+		img
+			{
+				width:40px;
+			}
+	}
+
+.hide{display:none;}
+
+/*ion-tabs{position:absolute !important;bottom:30px;}*/
+
+.loading-wrapper {
+    background-color: transparent !important;box-shadow:none !important;color:#fff;
+}
+
+.white_chat {
+    color: #f6f6f6 !important;
+    position: relative;
+
+    .no_of_msgs {min-width: 24px;min-height: 24px;position: absolute;top: -10px;background: #33b4e7;left: 18px;border-radius: 100%;font-size: 16px;padding: 4px;}
+}
+	
+a.logo_section
+	{	
+		position: absolute;
+		top: 0px;
+		background: #fff;
+		padding: 25px 15px;
+		margin-left: 84px;
+		height: 90px;
+		z-index: 1;
+		border-bottom-left-radius: 30px;
+		border-bottom-right-radius: 30px;
+		    border: 1px solid #6c6c6c;
+		.logo_img{width:125px;}
+	}
+
+
+
+.top_right_icons
+	{
+		float:right;
+		ul
+		  {list-style:none;    margin: 0;
+				li
+				  {float:left;
+						a
+							{padding: 7px 10px;
+								min-height: 50px;
+								display: flex;
+								align-items: center;
+								
+							img{ width: auto;
+								 height: auto;
+								 max-width: 35px;
+								 max-height: 35px;
+								 display: block;}
+							
+							}
+				  
+				  }	
+		  }	
+	}	
+	
+.dashboard_left_sidebar
+	{background:#e8e8e8;height:100%;
+		.searchbar-input-container
+			{
+			margin-top:30px;
+			.searchbar-search-icon
+				{
+				position: absolute ;
+				top: 11px ;
+				left: initial;
+				right: 0px;
+				cursor:pointer;
+				}
+			.searchbar-input
+				{
+				background:transparent;
+				box-shadow:none;
+				padding:6px 55px 6px 0;
+				border-bottom:3px solid #838383;
+				}				
+			}
+	
+	
+	}
+	
+.back-button.show-back-button{color:#fff;}
+
+.dashboard_item{
+
+	.dashboard_img_section
+		{
+			min-height:200px;				
+				
+				.dashboard_icon{ display: block; width: 180px; margin: 0 auto; padding: 20px;}	
+				
+				.delivery_img{width:100%;padding-bottom:0;}	
+			
+		}
+	h3{text-align:center;color:#686868;}
+	
+	.addon{min-height: 50px;
+		   padding: 0px 15px;
+		   width: 100%;
+		   position: absolute;
+		   
+						
+				img.left {	position: absolute;	left: 0px; width: 55px;}
+						
+				img.right {
+							position: absolute;
+							right: 0px;
+							width: 55px;
+						}
+						
+					
+		   }	
+}	
+
+
+
+.footer {
+		color:#fff;
+		.toolbar-background{background:#575757 !important;}
+		}
+
+        		
+		
+/*Media queries*/
+@media only screen and (max-width:600px)
+{
+	.pending_section, .cart_section, .notify_section{display:none;}
+	a.logo_section .logo_img {   width: 80px;}
+	a.logo_section{    height: 60px;    margin-left: 75px; padding: 15px 15px;}
+	
+	   
+}
+
+@media only screen and (min-width:0px) and (max-width:575px)
+{	
+	.dashboard_item{
+				
+				.dashboard_img_section
+					{    min-height: 190px;
+						.goods_delivery_img{width:100% !important;padding-bottom:0; margin-top: 20px; padding: 2px;}
+						.pull_left_icon{min-width: 100px;min-height: 100px;margin: 0 auto; border: 1px solid #ccc;max-height: 100%;max-width: 100%;width: 140px; height: 140px; text-align: center;padding-top: 40px;color:#95989a;font-size:24px;}
+						.delivery_img{width:100%;padding:20px 10px;}
+						
+							
+					}
+					h3{margin-top:0;}	
+					.addon{min-height: 50px;
+				   padding: 0px 15px;
+				   width: 100%;
+				   position: absolute;
+				   
+								
+						img.left {	position: absolute;	left: 0px; width: 45px;}
+								
+						img.right {
+									position: absolute;
+									right: 8px;
+									width: 45px;
+								}
+						
+					
+					}	
+			}
+			.top_right_icons ul{
+				padding:0;
+				 li a { padding: 7px 5px;}
+			}
+			.no_of_boxes{max-width:100% !important;}
+
+
+    .margin_bottom_70 {
+        margin-bottom: 70px
+    }
+	
+}
+
+
+
+@media only screen and (min-width:576px) and (max-width:767px) {
+    .dashboard_item {
+
+        .dashboard_img_section {
+            .goods_delivery_img {
+                width: 100% !important;
+                padding-bottom: 0;
+                margin-top: 20px;
+                padding: 2px;
+            }
+        }
+    }
+
+    h3 {
+        margin-top: 0;
+    }
+
+    .top_right_icons ul {
+        padding: 0;
+
+        li a {
+            padding: 7px 5px;
+        }
+    }
+}	
+
+@media only screen and (min-width:768px) and (max-width:991px)
+{	
+	.dashboard_item{
+
+				.dashboard_img_section
+					{
+						.goods_delivery_img{width:100% !important;padding-bottom:0; margin-top: 20px;}	
+					}
+			}
+}	
+
+@media only screen and (min-width:992px) and (max-width:1024px)
+{	
+	.dashboard_item{
+
+				.dashboard_img_section
+					{
+						.goods_delivery_img{width:100% !important;padding-bottom:0;}	
+					}
+			}
+}
+
+@media only screen and ( min-width:1025px ) and (max-width:1366px)
+{	
+	.dashboard_item{
+
+				.dashboard_img_section
+					{
+						.goods_delivery_img{width:80% !important;padding-bottom:0;}	
+					}
+			}
+}
+
+@media only screen and (min-height: 768px) and (min-width: 768px)
+{
+	    .dashboard_left_sidebar{min-height: 600px;}
+   
+}
+
+@media only screen and (min-height: 1024px) and (min-width: 1024px)
+{
+	    .dashboard_left_sidebar{min-height: 800px;}
+    
+}
+
+@media all and (min-width:576px) {
+    .custom-spinner-box {
+        background: url('../assets/imgs/puzzle_128.gif') no-repeat;
+        width: 50px;
+        height: 50px;
+        display: block;
+        background-size: 100%;
+        margin: 0 auto;
+    }
+}
+
+@media all and (max-width:575px) {
+    .custom-spinner-box {
+        background: url('../assets/imgs/puzzle_128.gif') no-repeat;
+        width: 24px;
+        height: 24px;
+        display: block;
+        background-size: 100%;
+        margin: 0 auto;
+    }
+    .stock_item_due{margin-bottom:15px;}
+}
+
+
+@media only screen and (min-height: 768px)  {
+    .dashboard_left_sidebar{
+        min-height: 900px;
+    }
+    .dashboard_right_sidebar {
+        min-height: 370px;
+    }
+
+    .inner_scroll {
+        min-height: 375px;
+        overflow-y: scroll;
+    }
+}
+
+@media only screen and (min-height: 1024px)  {
+   .dashboard_right_sidebar {
+        min-height: 620px;
+    }
+
+    .inner_scroll {
+        min-height: 625px;
+        max-height: 625px;
+        overflow-y: scroll
+    }
+}
+
+
+@media only screen and (min-height: 1366px) {
+    .dashboard_right_sidebar {
+        min-height: 920px;
+    }
+    .dashboard_left_sidebar {
+        min-height: 1230px;
+    } 
+    .inner_scroll {
+        min-height: 900px;
+
+        /* overflow-y: scroll;*/
+    }
+}
